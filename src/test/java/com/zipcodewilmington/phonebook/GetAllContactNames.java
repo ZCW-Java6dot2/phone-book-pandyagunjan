@@ -3,6 +3,7 @@ package com.zipcodewilmington.phonebook;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,14 +17,16 @@ public class GetAllContactNames {
             String name = names[i];
             phoneBook.add(name, "");
         }
-
+        List<String> expected= new ArrayList<>(Arrays.asList(names));
         // when
         List<String> actualNames = phoneBook.getAllContactNames();
 
         // then
-        Assert.assertEquals(Arrays.asList(names), actualNames);
-    }
+        //Assert.assertEquals(Arrays.asList(names), actualNames);
 
+        Assert.assertTrue(expected.size() == actualNames.size()
+                && expected.containsAll(actualNames)&& actualNames.containsAll(expected));
+    }
     @Test
     public void test2() {
         // given
@@ -33,12 +36,17 @@ public class GetAllContactNames {
             String name = names[i];
             phoneBook.add(name, "");
         }
-
+        List<String> expected= new ArrayList<>(Arrays.asList(names));
         // when
         List<String> actualNames = phoneBook.getAllContactNames();
 
+
+
         // then
-        Assert.assertEquals(Arrays.asList(names), actualNames);
+        //Assert.assertEquals(Arrays.asList(names), actualNames);
+
+        Assert.assertTrue(expected.size() == actualNames.size()
+                && expected.containsAll(actualNames)&& actualNames.containsAll(expected));
     }
 
     @Test
@@ -50,11 +58,12 @@ public class GetAllContactNames {
             String name = names[i];
             phoneBook.add(name, "");
         }
-
+        List<String> expected= new ArrayList<>(Arrays.asList(names));
         // when
         List<String> actualNames = phoneBook.getAllContactNames();
 
         // then
-        Assert.assertEquals(Arrays.asList(names), actualNames);
+        Assert.assertTrue(expected.size() == actualNames.size()
+                && expected.containsAll(actualNames)&& actualNames.containsAll(expected));
     }
 }
