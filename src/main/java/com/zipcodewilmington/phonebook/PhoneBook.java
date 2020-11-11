@@ -37,18 +37,24 @@ public class PhoneBook {
 
     public Boolean hasEntry(String name) {
 
-        return  phonebook.containsKey(name);
+        return  this.phonebook.containsKey(name);
     }
-    public Boolean hasEntry(String name,String phoneNumber) {
+   public Boolean hasEntry(String name,String phoneNumber) {
+       return this.phonebook.containsKey(name) && this.phonebook.get(name).contains(phoneNumber) ? true : false;
+   }
 
-       return phonebook.containsKey(name) && phonebook.containsValue(phoneNumber) ? true : false;
-    }
     public List<String> lookup(String name) {
         return phonebook.get(name);
     }
 
     public String reverseLookup(String phoneNumber)  {
-        return null;
+          //  for(String )
+       for(Map.Entry<String, List<String>> keyValue : phonebook.entrySet())
+       {
+           if(keyValue.getValue().equals(phoneNumber))
+               return keyValue.getKey();
+       }
+       return "not found";
     }
 
     public List<String> getAllContactNames() {
@@ -56,6 +62,7 @@ public class PhoneBook {
         List<String> list = new ArrayList<String>();
         for(String key : phonebook.keySet())
         {
+         //   list.add(phonebook.)
             list.add(key);
         }
         return list;
