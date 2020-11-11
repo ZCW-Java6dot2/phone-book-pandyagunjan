@@ -52,10 +52,17 @@ public class PhoneBook {
     }
 
     public List<String> getAllContactNames() {
-        return null;
+
+        List<String> list = new ArrayList<String>();
+        for(String key : phonebook.keySet())
+        {
+            list.add(key);
+        }
+        return list;
+
     }
 
     public Map<String, List<String>> getMap() {
-        return null;
+        return phonebook;
     }
 }
