@@ -51,7 +51,7 @@ public class PhoneBook {
           //  for(String )
        for(Map.Entry<String, List<String>> keyValue : phonebook.entrySet())
        {
-           if(keyValue.getValue().equals(phoneNumber))
+           if(keyValue.getValue().contains(phoneNumber))
                return keyValue.getKey();
        }
        return "not found";
